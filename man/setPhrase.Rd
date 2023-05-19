@@ -2,22 +2,23 @@
 % Please edit documentation in R/setPhrase.R
 \name{setPhrase}
 \alias{setPhrase}
-\title{Author: Ashton Drew
-Turns a vector of values into a sentence style list,
-inserting "and" prior to the last item.}
+\title{Turns a vector of values into a sentence style list,
+inserting "and" prior to the last item, keeps each item separate within vector}
 \usage{
-setPhrase(setVector, oxford = TRUE)
+setPhrase(setVector, oxford = TRUE, vectorize = FALSE)
 }
 \arguments{
-\item{setVector}{the vector of values to be converted to sentence style}
+\item{setVector}{character vector, vector of values to be converted to sentence style}
 
-\item{oxford}{do you want an oxford comma? default is TRUE}
+\item{oxford}{logical, if TRUE adds an oxford comma when applicable}
+
+\item{vectorize}{logical, indicates whether to split phrase items into seperate
+indices within output vector.  This may be useful if output is being used within HTML bulleted list.}
 }
 \value{
-a single character string
+a character vector containing input items formatted as a sentance
 }
 \description{
-Author: Ashton Drew
 Turns a vector of values into a sentence style list,
-inserting "and" prior to the last item.
+inserting "and" prior to the last item, keeps each item separate within vector
 }

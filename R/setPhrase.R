@@ -14,7 +14,7 @@
 #' @importFrom stringr str_remove
 #'
 #'@export
-setPhraseSeparate <- function(setVector, oxford = TRUE, vectorize = FALSE){
+setPhrase <- function(setVector, oxford = TRUE, vectorize = FALSE){
   items <- length(setVector)
   out <- setVector
   # If n items > 2, append commas to each
@@ -36,11 +36,10 @@ setPhraseSeparate <- function(setVector, oxford = TRUE, vectorize = FALSE){
   # Remove unnecessary commas
   out[(items - dropCommaIndex):items] <- str_remove(out[(items - dropCommaIndex):items], ",")
 
+  #
   if(!vectorize){
     out <- paste(out, collapse = " ")
   }
-
-
 
   return(out)
 
