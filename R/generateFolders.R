@@ -3,7 +3,7 @@
 # 2023-05-22
 
 
-#' Create 1 or more folders with identical subfolder structure
+#' Create 1 or more folders with specified subfolders
 #' 
 #' Generates one or more folders within a given path, all of which will contain 
 #' identical subfolders if specified.
