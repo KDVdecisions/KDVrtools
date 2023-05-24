@@ -2,8 +2,7 @@
 % Please edit documentation in R/setPhrase.R
 \name{setPhrase}
 \alias{setPhrase}
-\title{Turns a vector of values into a sentence style list,
-inserting "and" prior to the last item, keeps each item separate within vector}
+\title{Convert vector into sentence style list}
 \usage{
 setPhrase(setVector, oxford = TRUE, vectorize = FALSE)
 }
@@ -19,6 +18,16 @@ indices within output vector.  This may be useful if output is being used within
 a character vector containing input items formatted as a sentance
 }
 \description{
-Turns a vector of values into a sentence style list,
-inserting "and" prior to the last item, keeps each item separate within vector
+Turns a vector of values into a sentence style list, inserting "and" prior to
+the last item, keeps each item separate within vector
+}
+\examples{
+items <- c("This", "that", "the other")
+# As single string
+setPhrase(items)
+# as vector
+setPhrase(items, vectorize = TRUE)
+# No oxford
+setPhrase(items, oxford = FALSE)
+
 }

@@ -29,7 +29,7 @@ generateFolders <- function(path, folders, subfolders = NULL){
   }
   
   folderPaths <- sprintf("%s/%s", path, folders)
-  #finalPaths <- sprintf("%s/%s", folders, subfolders)
+
   for(i in 1:length(folderPaths)){
     thisFolder <- folderPaths[i]
     

@@ -3,6 +3,8 @@
 # 2023-05-19
 
 
+#' Generate dummy columns based on expected values
+#' 
 #' Generates a data.frame of dummy columns from a data.frame containing specified
 #' columns and values.  Often input is from from Arc Collector when
 #' user entered values from a multi-select widget
@@ -15,7 +17,13 @@
 #' @import dplyr
 #' @importFrom stringr str_detect
 #' @importFrom tidyr unite
-#'
+#' @examples
+#'      testDf <- data.frame(spp01 = c("bat", "cat", "rat", "crab"),
+#'                           spp02 = c("bat", "cat, rat", "crab", "bat, rat"))
+#'      setColumns = c("spp01", "spp02")
+#'      setValues = c("bat", "cat", "rat", "crab")
+#'      makeSetDummies(testDf, setColumns, setValues)
+#' 
 #' @export
 makeSetDummies <- function(df, setColumns, setValues, numeric = FALSE){
 

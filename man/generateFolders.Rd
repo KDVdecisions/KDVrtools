@@ -4,7 +4,7 @@
 \alias{generateFolders}
 \title{Create 1 or more folders with identical subfolder structure}
 \usage{
-generateFolders(path, folders, subfolders)
+generateFolders(path, folders, subfolders = NULL)
 }
 \arguments{
 \item{path}{character, location in which to create folders}

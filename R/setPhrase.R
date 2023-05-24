@@ -3,8 +3,10 @@
 # 2023-05-19
 
 
-#' Turns a vector of values into a sentence style list,
-#' inserting "and" prior to the last item, keeps each item separate within vector
+#' Convert vector into sentence style list
+#' 
+#' Turns a vector of values into a sentence style list, inserting "and" prior to 
+#' the last item, keeps each item separate within vector
 #'
 #' @param setVector character vector, vector of values to be converted to sentence style
 #' @param oxford logical, if TRUE adds an oxford comma when applicable
@@ -12,7 +14,15 @@
 #'        indices within output vector.  This may be useful if output is being used within HTML bulleted list.
 #' @return a character vector containing input items formatted as a sentance
 #' @importFrom stringr str_remove
-#'
+#' @examples
+#' items <- c("This", "that", "the other")
+#' # As single string
+#' setPhrase(items)
+#' # as vector
+#' setPhrase(items, vectorize = TRUE)
+#' # No oxford
+#' setPhrase(items, oxford = FALSE)
+#' 
 #'@export
 setPhrase <- function(setVector, oxford = TRUE, vectorize = FALSE){
   items <- length(setVector)
