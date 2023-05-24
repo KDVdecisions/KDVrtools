@@ -22,7 +22,7 @@
 #'                subfolders = c("Docs", "Excel", "Figures", "Shapefle"))
 #'}
 #' @export
-generateFolders <- function(path, folders, subfolders){
+generateFolders <- function(path, folders, subfolders = NULL){
   
   if(!dir.exists(path)){
     stop(sprintf("Unable to find directory '%s'", path))
