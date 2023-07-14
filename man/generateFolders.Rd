@@ -2,7 +2,7 @@
 % Please edit documentation in R/generateFolders.R
 \name{generateFolders}
 \alias{generateFolders}
-\title{Create 1 or more folders with identical subfolder structure}
+\title{Create 1 or more folders with specified subfolders}
 \usage{
 generateFolders(path, folders, subfolders = NULL)
 }
