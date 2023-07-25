@@ -13,7 +13,7 @@
 #' "## ----chunkName--".
 #'
 #' @param file The path to the RMD file you'd like to split up. 
-#' @return Multiple R files from each section of the R markdown document 
+#' @return Multiple R files from each section of the RMD.
 #' @importFrom knitr purl 
 #' @importFrom dplyr lead
 #' @examples 

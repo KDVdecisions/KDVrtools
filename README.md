@@ -1,2 +1,2 @@
 # KDVrtools
-Functions for interal KDV use
+Functions for internal KDV use.
