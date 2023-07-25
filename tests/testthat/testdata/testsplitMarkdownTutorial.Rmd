@@ -1,0 +1,42 @@
+---
+title: "Introduction to R Shiny"
+author: "C. Ashton Drew, PhD; KDV Decision Analysis LLC"
+date: "2023-06-19"
+output: 
+  pdf_document:
+    toc: true
+    toc_depth: 2
+    number_sections: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
+```
+  
+---
+  
+Loading necessary libraries:
+
+```{r libraries}
+library(ggplot2)
+library(shiny)
+library(dplyr)
+```
+
+# CORE ELEMENTS
+
+Core elements: creating an empty Shiny App
+
+```{r coreElements}
+ui <- fluidPage()
+server <- function(input, output){}
+shinyApp(ui, server)
+# Can be created in one document app.R like this OR
+# write a ui.R and a server.R separately
+# Notice: fluidPage initiates an html webpage
+# Notice: The server component will be a function that takes input and 
+# output arguments. These will be lists of objects defined in the ui section.
+# Notice: Running this code alone creates an html product. Click on open in 
+# browser and then right click anywhere in the empty page to see the generated 
+# html code
+```
