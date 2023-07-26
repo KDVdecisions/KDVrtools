@@ -1,4 +1,4 @@
-test_that("RMD is split", {
+test_that("Test to ensure that RMD with one header is split", {
   splitMarkdownTutorial(test_path("testdata", "testsplitMarkdownTutorial.Rmd"))
   expect_true(file.exists("CORE_ELEMENTS.R"))
   # cleaning up: 
