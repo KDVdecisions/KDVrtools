@@ -3,17 +3,18 @@
 # Date: 7/3/2023
 ################################################################################
 
-
 #' Generate multiple R files from one R markdown file
 #'
-#' This function takes a single RMD document containing headers (headers MUST be 
-#' denoted by "# ", for example "# CORE ELEMENTS) and breaks all sections into 
-#' separate R files in your working directory. In these R files, text outside of 
-#' code chunks appear as Roxygen "#' " comments, and chunks of code are denoted 
-#' "## ----chunkName--".
+#' This function takes the path to a single RMD document that contains headers 
+#' (headers MUST be denoted by "# ", for example "# CORE ELEMENTS" or 
+#' "# core elements") and breaks all sections into separate R files in your 
+#' working directory. R files are named by the section title separated by 
+#' an underscore (i.e., CORE_ELEMENTS.R). In the R files that are produced, 
+#' text outside of code chunks appear as Roxygen comments, and chunks of code 
+#' are denoted with "## ----chunkName--".
 #'
 #' @param file The path to the RMD file you'd like to split up. 
-#' @return Multiple R files from each section of the RMD.
+#' @return Multiple R files from each section of the RMD. 
 #' @importFrom knitr purl 
 #' @importFrom dplyr lead
 #' @examples 
@@ -31,7 +32,12 @@ splitMarkdownTutorial <- function(file = "Walkthrough_01_CombinedExercises.Rmd")
   lessonRMD <- readLines(purl_file)
   
   # grabbing code lines of section breaks:
-  sectionBreaks <- which(grepl("#' #", lessonRMD))
+  sectionBreaks <- which(grepl("#' # [A-Z]", lessonRMD, ignore.case = TRUE))
+  
+  # guidance if markdown file does not contained specific headers: 
+  if (length(sectionBreaks) == 0){
+    stop("No headers detected. Make sure they are denoted with `# Section Name`")
+  }
   
   # grabbing section titles:
   sectionTitles <- lessonRMD[grepl("#' #", lessonRMD)]

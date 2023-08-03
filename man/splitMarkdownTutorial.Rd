@@ -10,14 +10,16 @@ splitMarkdownTutorial(file = "Walkthrough_01_CombinedExercises.Rmd")
 \item{file}{The path to the RMD file you'd like to split up.}
 }
 \value{
-Multiple R files from each section of the R markdown document
+Multiple R files from each section of the RMD.
 }
 \description{
-This function takes a single RMD document containing headers (headers MUST be
-denoted by "# ", for example "# CORE ELEMENTS) and breaks all sections into
-separate R files in your working directory. In these R files, text outside of
-code chunks appear as Roxygen "#' " comments, and chunks of code are denoted
-"## ----chunkName--".
+This function takes the path to a single RMD document that contains headers
+(headers MUST be denoted by "# ", for example "# CORE ELEMENTS" or
+"# core elements") and breaks all sections into separate R files in your
+working directory. R files are named by the section title separated by
+an underscore (i.e., CORE_ELEMENTS.R). In the R files that are produced,
+text outside of code chunks appear as Roxygen comments, and chunks of code
+are denoted with "## ----chunkName--".
 }
 \examples{
   file <- "Walkthrough_01_CombinedExercises.Rmd"
