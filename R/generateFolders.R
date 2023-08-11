@@ -10,7 +10,7 @@
 #' 
 #' @param path character, location in which to create folders
 #' @param folders character vector of length 1 or more.  Folders to be created in location path
-#' @param subfolders character vector of lenth 0 or more.  Subfolders to be created within path/Folders.
+#' @param subfolders character vector of length 0 or more.  Subfolders to be created within path/Folders.
 #' @return NULL
 #' @examples
 #'\dontrun{
@@ -33,18 +33,52 @@ generateFolders <- function(path, folders, subfolders = NULL){
   for(i in 1:length(folderPaths)){
     thisFolder <- folderPaths[i]
     
-    # If folder already exists and is not empty
-    if(length(list.files(thisFolder)) > 0){
-      warning(sprintf("Directory '%s' already exists, skipping.", folders[i]))
+    # Grabbing all folder path components to identify parent folder for warning 
+    # messages
+    folderComponents <- unlist(strsplit(thisFolder, "/"))
+    parentFolder <- folderComponents[length(folderComponents)]
+    
+    # Noting subfolders that are already present within parent folder: 
+    allFolders <- list.files(thisFolder)
+    present <- subfolders[which(subfolders %in% allFolders)]
+    
+    # Note extra subfolders that were not specified: 
+    extra <- allFolders[!(allFolders %in% present)]
+    if (length(extra) >= 1){
+      extraString <- paste(extra, collapse = ", ")
+      # Throw warning if extra subfolders are present but not specified: 
+      warning(paste0("The following extra subfolders exist but were not specified: ", 
+                     extraString, " - within parent folder ", parentFolder))
+    }
+    
+    # Checking if any subfolders are already present: 
+    if(any(subfolders %in% list.files(thisFolder))){
+      # Throw warning if subfolders already present
+      presentString <- paste(present, collapse = ", ")
+      warning(paste0("The following subfolders already exist: ", presentString, 
+                     " - skipping within parent folder ", parentFolder))
+      
+      # Locate missing subfolders that need to be added, if any: 
+      missing <- subfolders[!(subfolders %in% present)]
+      if(length(missing) != 0){
+        # Add missing subfolders to parent folder: 
+        dir.create(thisFolder, showWarnings = FALSE)
+        subPaths <- sprintf("%s/%s", thisFolder, missing)
+        sapply(subPaths, dir.create)
+      }  else {
+        # Noting that folder and subfolder are already present
+        warning("Folder and subfolder already present. Skipping ", parentFolder)
+      }
     } else {
-      # Create folder and subfolders
+      # If the whole folder doesn't exist, then create folder and subfolders:
       dir.create(thisFolder, showWarnings = FALSE)
       subPaths <- sprintf("%s/%s", thisFolder, subfolders)
       sapply(subPaths, dir.create)
     }
+    
   }
   
-  return(NULL)
+  return(invisible(NULL))
   
 }
 
