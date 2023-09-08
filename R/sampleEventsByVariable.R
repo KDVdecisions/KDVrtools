@@ -17,7 +17,7 @@
 #' @param varCol Name of the column containing variables to plot on the y-axis.
 #' @param var The character vector of names of variables to be used. 
 #' All variables should be present within the varCol column. 
-#' @param dateBreaks The date breaks that will be used on the x axis. 
+#' @param dateBreaks The date breaks that will be used on the x-axis. 
 #' @param dateLimits The date limits on the y-axis. 
 #' @return NULL, plots are printed for each factor level of setCol. 
 #' @importFrom dplyr filter 
