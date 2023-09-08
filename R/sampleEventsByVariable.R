@@ -41,13 +41,13 @@ sampleEventsByVariable <- function(df, setCol, varCol, var,
   assertthat::assert_that(is.data.frame(df), 
                           msg = "df must be a data.frame or tibble")
   assertthat::assert_that(all(c(varCol, "DATE") %in% names(df)), 
-                          msg = paste0("the df object must include columns named: '", varCol, "' and 'DATE'."))
+                          msg = paste0("The df object must include columns named: '", varCol, "' and 'DATE'."))
   assertthat::assert_that(is.character(df[[varCol]]), 
-                          msg = paste0("The column '", varCol, " ' must be a character vector."))
+                          msg = paste0("The column '", varCol, "' must be a character vector."))
   assertthat::assert_that(lubridate::is.Date(df[["DATE"]]), 
                           msg = "The column 'DATE' must be Date format.")
   assertthat::assert_that(all(var %in% unique(df[[varCol]])), 
-                          msg = paste0("Check your var vector. Some requested values are not found in the ",  varCol , " column."))
+                          msg = paste0("Check your var vector. Some requested values are not found in the '",  varCol , "' column."))
 
   # Filtering out the selected variables
   subData <- dplyr::filter(df, !!dplyr::sym(varCol) %in% var)
