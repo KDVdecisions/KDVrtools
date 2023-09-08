@@ -1,9 +1,10 @@
 test_that("Simple plots are produced", {
-  # preppigng test data: 
+  # prepping test data: 
   airqualLong <- tidyr::pivot_longer(airquality, 1:4,
                                      names_to = "vars", 
                                      values_to = "val")
-  airqualLong$DATE <- paste(airqualLong$Month, airqualLong$Day, "2010", sep = "/")
+  airqualLong$DATE <- paste(airqualLong$Month, airqualLong$Day, "2010", 
+                            sep = "/")
   airqualLong$DATE <- as.Date(airqualLong$DATE, tryFormats = c("%m/%d/%Y"))
   airqualLong$Month <- as.factor(airqualLong$Month)
   
