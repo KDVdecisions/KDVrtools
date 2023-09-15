@@ -1,0 +1,34 @@
+---
+title: "Tests for function"
+author: "EmmaLi Tsai"
+date: "2023-07-25"
+output: 
+  pdf_document:
+    toc: true
+    toc_depth: 2
+    number_sections: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
+```
+  
+---
+  
+Loading necessary libraries:
+
+```{r libraries}
+library(ggplot2)
+library(shiny)
+library(dplyr)
+```
+
+# CORE ELEMENTS
+
+Core elements: creating an empty Shiny App
+
+```{r coreElements}
+ui <- fluidPage()
+server <- function(input, output){}
+shinyApp(ui, server)
+```

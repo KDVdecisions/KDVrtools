@@ -11,7 +11,7 @@ generateFolders(path, folders, subfolders = NULL)
 
 \item{folders}{character vector of length 1 or more.  Folders to be created in location path}
 
-\item{subfolders}{character vector of lenth 0 or more.  Subfolders to be created within path/Folders.}
+\item{subfolders}{character vector of length 0 or more.  Subfolders to be created within path/Folders.}
 }
 \description{
 Generates one or more folders within a given path, all of which will contain
